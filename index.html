@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso de Inglés - 4º Primaria</title>
+    <style>
+        body { font-family: 'Comic Sans MS', sans-serif, Arial; background-color: #f0f8ff; text-align: center; padding: 20px; }
+        h1 { color: #ff6f61; }
+        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+        .card { background-color: white; border: 3px solid #4caf50; border-radius: 12px; padding: 20px; width: 200px; font-size: 1.2rem; cursor: pointer; transition: transform 0.2s; box-shadow: 3px 3px 10px rgba(0,0,0,0.1); }
+        .card:hover { transform: scale(1.05); }
+        .english { font-weight: bold; color: #2196f3; }
+        .spanish { color: #555; display: none; margin-top: 10px; font-size: 1rem; }
+    </style>
+</head>
+<body>
+
+    <h1>🌟 Practice English Vocabulary! 🌟</h1>
+    <p>Haz clic en cada tarjeta para ver el significado en español 👇</p>
+
+    <div class="card-container">
+        <!-- Physical Description -->
+        <div class="card" onclick="toggleCard(this)"><span class="english">Tall</span><div class="spanish">Alto/a</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Short</span><div class="spanish">Bajo/a / Corto</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Curly hair</span><div class="spanish">Pelo rizado</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Straight hair</span><div class="spanish">Pelo liso</div></div>
+
+        <!-- Illnesses -->
+        <div class="card" onclick="toggleCard(this)"><span class="english">Headache 🤕</span><div class="spanish">Dolor de cabeza</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Toothache 🦷</span><div class="spanish">Dolor de muelas</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Temperature 🌡️</span><div class="spanish">Fiebre</div></div>
+
+        <!-- Ordinal Numbers -->
+        <div class="card" onclick="toggleCard(this)"><span class="english">1st (First) 🥇</span><div class="spanish">Primero</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">2nd (Second) 🥈</span><div class="spanish">Segundo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">3rd (Third) 🥉</span><div class="spanish">Tercero</div></div>
+
+        <!-- Months -->
+        <div class="card" onclick="toggleCard(this)"><span class="english">January ❄️</span><div class="spanish">Enero</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">October 🎃</span><div class="spanish">Octubre</div></div>
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            const spanishText = card.querySelector('.spanish');
+            if (spanishText.style.display === 'block') {
+                spanishText.style.display = 'none';
+            } else {
+                spanishText.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
