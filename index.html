@@ -9,7 +9,7 @@
         h1 { color: #ff6f61; font-size: 2.5rem; }
         h2 { color: #4caf50; margin-top: 40px; border-bottom: 2px dashed #4caf50; display: inline-block; padding-bottom: 5px; }
         
-        /* Estilos de las Tarjetas */
+        /* 1. Estilos de las Tarjetas */
         .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; }
         .card { background-color: white; border: 3px solid #ff9800; border-radius: 12px; padding: 20px; width: 220px; font-size: 1.2rem; cursor: pointer; transition: transform 0.2s; box-shadow: 3px 3px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; min-height: 80px; }
         .card:hover { transform: scale(1.05); border-color: #ff5722; }
@@ -17,8 +17,8 @@
         .spanish { color: #e91e63; display: none; margin-top: 10px; font-size: 1.1rem; font-weight: bold; }
         .phrase-card { border-color: #9c27b0; width: 300px; }
 
-        /* Estilos del Minijuego (Quiz) */
-        .quiz-container { background-color: white; border: 4px solid #9c27b0; border-radius: 15px; max-width: 600px; margin: 50px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
+        /* 2. Estilos del Minijuego (Quiz) */
+        .quiz-container { background-color: white; border: 4px solid #9c27b0; border-radius: 15px; max-width: 600px; margin: 30px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
         #question-text { font-size: 1.4rem; font-weight: bold; color: #333; }
         .quiz-btn { display: block; width: 100%; margin: 10px 0; padding: 12px; font-size: 1.2rem; font-family: 'Comic Sans MS', sans-serif; border: 2px solid #2196f3; border-radius: 8px; background: white; cursor: pointer; transition: 0.2s; }
         .quiz-btn:hover { background-color: #e3f2fd; }
@@ -27,6 +27,18 @@
         #next-btn, #restart-btn { background-color: #ff9800; color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; margin-top: 15px; display: none; font-weight: bold; }
         #next-btn:hover, #restart-btn:hover { background-color: #f57c00; }
         #feedback { font-size: 1.2rem; font-weight: bold; margin-top: 15px; min-height: 25px; }
+
+        /* 3. Estilos del Memory Game */
+        .memory-container { background-color: white; border: 4px solid #f44336; border-radius: 15px; max-width: 600px; margin: 30px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
+        .memory-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; perspective: 1000px; }
+        .memory-card { width: 100%; aspect-ratio: 1; position: relative; cursor: pointer; transform-style: preserve-3d; transition: transform 0.5s; }
+        .memory-card.flip { transform: rotateY(180deg); }
+        .memory-face { position: absolute; width: 100%; height: 100%; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: bold; backface-visibility: hidden; box-sizing: border-box; padding: 5px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
+        .memory-front { background-color: #e3f2fd; border: 3px solid #2196f3; transform: rotateY(180deg); color: #333; }
+        .memory-back { background-color: #ff9800; border: 3px solid #f57c00; color: white; font-size: 2.5rem; }
+        #restart-memory-btn { background-color: #f44336; color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; margin-top: 20px; font-weight: bold; }
+        #restart-memory-btn:hover { background-color: #d32f2f; }
+        @media (max-width: 500px) { .memory-face { font-size: 0.9rem; } }
     </style>
 </head>
 <body>
@@ -35,7 +47,7 @@
     <p>Haz clic en cada tarjeta para ver qué significa en español 👇</p>
 
     <!-- SECTION 1: DESCRIPTIONS -->
-    <h2>🧍‍♂️ Physical Description (Descripciones) 🧍‍♀️</h2>
+    <h2>🧍‍♂️ Physical Description 🧍‍♀️</h2>
     <div class="card-container">
         <div class="card phrase-card" onclick="toggleCard(this)"><span class="english">What does he/she look like? ❓</span><div class="spanish">¿Cómo es él / ella?</div></div>
         <div class="card" onclick="toggleCard(this)"><span class="english">Tall 📏</span><div class="spanish">Alto / Alta</div></div>
@@ -52,7 +64,7 @@
     </div>
 
     <!-- SECTION 2: ILLNESSES -->
-    <h2>🤒 Illnesses (Enfermedades) 🏥</h2>
+    <h2>🤒 Illnesses 🏥</h2>
     <div class="card-container">
         <div class="card phrase-card" onclick="toggleCard(this)"><span class="english">I'm not feeling very well 📉</span><div class="spanish">No me encuentro muy bien</div></div>
         <div class="card phrase-card" onclick="toggleCard(this)"><span class="english">What's the matter with you? ❓</span><div class="spanish">¿Qué te pasa?</div></div>
@@ -67,7 +79,7 @@
     </div>
 
     <!-- SECTION 3: NUMBERS -->
-    <h2>🔢 Ordinal Numbers (Números Ordinales) 🔢</h2>
+    <h2>🔢 Ordinal Numbers 🔢</h2>
     <div class="card-container">
         <div class="card" onclick="toggleCard(this)"><span class="english">1st - First 🥇</span><div class="spanish">Primero</div></div>
         <div class="card" onclick="toggleCard(this)"><span class="english">2nd - Second 🥈</span><div class="spanish">Segundo</div></div>
@@ -84,7 +96,7 @@
     </div>
 
     <!-- SECTION 4: MONTHS -->
-    <h2>📅 Months of the Year (Meses) 🗓️</h2>
+    <h2>📅 Months of the Year 🗓️</h2>
     <div class="card-container">
         <div class="card" onclick="toggleCard(this)"><span class="english">January ❄️</span><div class="spanish">Enero</div></div>
         <div class="card" onclick="toggleCard(this)"><span class="english">February ❄️</span><div class="spanish">Febrero</div></div>
@@ -100,8 +112,18 @@
         <div class="card" onclick="toggleCard(this)"><span class="english">December 🎄</span><div class="spanish">Diciembre</div></div>
     </div>
 
-    <!-- SECTION 5: MINIJUEGO QUIZ -->
-    <h2>🎮 Minijuego: ¡Ponte a prueba! 🎮</h2>
+    <!-- SECTION 5: MINIJUEGO MEMORY -->
+    <h2>🃏 Juego de Parejas (Memory) 🃏</h2>
+    <div class="memory-container">
+        <p>Encuentra las parejas: Palabra en inglés con su significado en español.</p>
+        <div class="memory-board" id="memory-board">
+            <!-- Las cartas se generan por JavaScript -->
+        </div>
+        <button id="restart-memory-btn" onclick="initMemoryGame()">🔄 Volver a Jugar Memory</button>
+    </div>
+
+    <!-- SECTION 6: MINIJUEGO QUIZ -->
+    <h2>🎮 Minijuego Quiz: ¡Ponte a prueba! 🎮</h2>
     <div class="quiz-container" id="quiz">
         <p id="question-text">Pregunta</p>
         <div id="options">
@@ -113,13 +135,109 @@
     </div>
 
     <script>
-        // Función para girar las tarjetas
+        // -----------------------------------------------------
+        // 1. LÓGICA DE LAS TARJETAS QUE SE GIRAN
+        // -----------------------------------------------------
         function toggleCard(card) {
             const spanishText = card.querySelector('.spanish');
             spanishText.style.display = spanishText.style.display === 'block' ? 'none' : 'block';
         }
 
-        // LÓGICA DEL MINIJUEGO QUIZ
+        // -----------------------------------------------------
+        // 2. LÓGICA DEL MEMORY GAME (JUEGO DE PAREJAS)
+        // -----------------------------------------------------
+        const memoryPairs = [
+            { id: 1, text: "Tall 📏", match: 1 }, { id: 2, text: "Alto/Alta", match: 1 },
+            { id: 3, text: "Curly hair 〰️", match: 2 }, { id: 4, text: "Pelo rizado", match: 2 },
+            { id: 5, text: "Headache 🤕", match: 3 }, { id: 6, text: "Dolor de cabeza", match: 3 },
+            { id: 7, text: "Cough 🗣️", match: 4 }, { id: 8, text: "Tos", match: 4 },
+            { id: 9, text: "1st 🥇", match: 5 }, { id: 10, text: "Primero", match: 5 },
+            { id: 11, text: "January ❄️", match: 6 }, { id: 12, text: "Enero", match: 6 },
+            { id: 13, text: "Short 📏", match: 7 }, { id: 14, text: "Bajo/Baja", match: 7 },
+            { id: 15, text: "Toothache 🦷", match: 8 }, { id: 16, text: "Dolor de muelas", match: 8 }
+        ];
+
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+        let matchedPairs = 0;
+
+        const memoryBoard = document.getElementById('memory-board');
+
+        function initMemoryGame() {
+            memoryBoard.innerHTML = '';
+            matchedPairs = 0;
+            // Mezclar el array aleatoriamente
+            let shuffledArray = memoryPairs.sort(() => 0.5 - Math.random());
+            
+            shuffledArray.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('memory-card');
+                card.dataset.match = item.match;
+                
+                card.innerHTML = `
+                    <div class="memory-face memory-front">${item.text}</div>
+                    <div class="memory-face memory-back">❓</div>
+                `;
+                
+                card.addEventListener('click', flipCard);
+                memoryBoard.appendChild(card);
+            });
+        }
+
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+
+            this.classList.add('flip');
+
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+
+            secondCard = this;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.match === secondCard.dataset.match;
+            isMatch ? disableCards() : unflipCards();
+        }
+
+        function disableCards() {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            matchedPairs++;
+            
+            if(matchedPairs === 8) {
+                setTimeout(() => { alert("¡Felicidades! Has encontrado todas las parejas 🏆"); }, 500);
+            }
+            resetBoard();
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+            setTimeout(() => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+                resetBoard();
+            }, 1000);
+        }
+
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+
+        // Iniciar el Memory Game al cargar la página
+        initMemoryGame();
+
+
+        // -----------------------------------------------------
+        // 3. LÓGICA DEL MINIJUEGO QUIZ
+        // -----------------------------------------------------
         const questions = [
             {
                 question: "¿Cómo se dice 'Dolor de cabeza' en inglés? 🤕",
@@ -155,12 +273,12 @@
         const optionsEl = document.getElementById("options");
         const feedbackEl = document.getElementById("feedback");
         const nextBtn = document.getElementById("next-btn");
-        const restartBtn = document.getElementById("restart-btn");
+        const restartQuizBtn = document.getElementById("restart-btn");
 
         function startQuiz() {
             currentQuestionIndex = 0;
             score = 0;
-            restartBtn.style.display = "none";
+            restartQuizBtn.style.display = "none";
             showQuestion();
         }
 
@@ -184,7 +302,7 @@
 
         function selectAnswer(selectedIndex, button) {
             const q = questions[currentQuestionIndex];
-            const allButtons = optionsEl.querySelectorAll("button");
+            const allButtons = optionsEl.querySelectorAll(".quiz-btn");
             
             allButtons.forEach(btn => btn.disabled = true);
 
@@ -218,7 +336,7 @@
             nextBtn.style.display = "none";
             feedbackEl.textContent = `Has acertado ${score} de ${questions.length} preguntas.`;
             feedbackEl.style.color = "#2196f3";
-            restartBtn.style.display = "inline-block";
+            restartQuizBtn.style.display = "inline-block";
         }
 
         // Iniciar el quiz al cargar la página
