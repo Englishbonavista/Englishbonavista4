@@ -17,18 +17,7 @@
         .spanish { color: #e91e63; display: none; margin-top: 10px; font-size: 1.1rem; font-weight: bold; }
         .phrase-card { border-color: #9c27b0; width: 300px; }
 
-        /* 2. Estilos del Minijuego (Quiz) */
-        .quiz-container { background-color: white; border: 4px solid #9c27b0; border-radius: 15px; max-width: 600px; margin: 30px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
-        #question-text { font-size: 1.4rem; font-weight: bold; color: #333; }
-        .quiz-btn { display: block; width: 100%; margin: 10px 0; padding: 12px; font-size: 1.2rem; font-family: 'Comic Sans MS', sans-serif; border: 2px solid #2196f3; border-radius: 8px; background: white; cursor: pointer; transition: 0.2s; }
-        .quiz-btn:hover { background-color: #e3f2fd; }
-        .quiz-btn.correct { background-color: #4caf50 !important; color: white; border-color: #388e3c; }
-        .quiz-btn.incorrect { background-color: #f44336 !important; color: white; border-color: #d32f2f; }
-        #next-btn, #restart-btn { background-color: #ff9800; color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; margin-top: 15px; display: none; font-weight: bold; }
-        #next-btn:hover, #restart-btn:hover { background-color: #f57c00; }
-        #feedback { font-size: 1.2rem; font-weight: bold; margin-top: 15px; min-height: 25px; }
-
-        /* 3. Estilos del Memory Game */
+        /* 2. Estilos del Memory Game */
         .memory-container { background-color: white; border: 4px solid #f44336; border-radius: 15px; max-width: 600px; margin: 30px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
         .memory-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; perspective: 1000px; }
         .memory-card { width: 100%; aspect-ratio: 1; position: relative; cursor: pointer; transform-style: preserve-3d; transition: transform 0.5s; }
@@ -39,7 +28,32 @@
         #restart-memory-btn { background-color: #f44336; color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; margin-top: 20px; font-weight: bold; }
         #restart-memory-btn:hover { background-color: #d32f2f; }
         @media (max-width: 500px) { .memory-face { font-size: 0.9rem; } }
+
+        /* 3. Estilos del Minijuego (Quiz) */
+        .quiz-container { background-color: white; border: 4px solid #9c27b0; border-radius: 15px; max-width: 600px; margin: 30px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
+        #question-text { font-size: 1.4rem; font-weight: bold; color: #333; }
+        .quiz-btn { display: block; width: 100%; margin: 10px 0; padding: 12px; font-size: 1.2rem; font-family: 'Comic Sans MS', sans-serif; border: 2px solid #2196f3; border-radius: 8px; background: white; cursor: pointer; transition: 0.2s; }
+        .quiz-btn:hover { background-color: #e3f2fd; }
+        .quiz-btn.correct { background-color: #4caf50 !important; color: white; border-color: #388e3c; }
+        .quiz-btn.incorrect { background-color: #f44336 !important; color: white; border-color: #d32f2f; }
+        #next-btn, #restart-btn { background-color: #ff9800; color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; margin-top: 15px; display: none; font-weight: bold; }
+        #next-btn:hover, #restart-btn:hover { background-color: #f57c00; }
+        #feedback { font-size: 1.2rem; font-weight: bold; margin-top: 15px; min-height: 25px; }
+
+        /* 4. Estilos del Reto de Spelling */
+        .spelling-container { background-color: white; border: 4px solid #e91e63; border-radius: 15px; max-width: 600px; margin: 30px auto; padding: 20px; box-shadow: 3px 3px 15px rgba(0,0,0,0.2); }
+        .spelling-clue { font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 15px; }
+        .spelling-input { font-size: 1.5rem; padding: 10px; width: 70%; border: 2px solid #e91e63; border-radius: 8px; text-align: center; font-family: 'Comic Sans MS', sans-serif; margin-bottom: 10px; }
+        .spelling-btn { background-color: #e91e63; color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        .spelling-btn:hover { background-color: #c2185b; }
+        #spelling-feedback { font-size: 1.3rem; font-weight: bold; margin-top: 15px; min-height: 30px; }
+
+        /* 5. Botón de Confeti */
+        .confetti-btn { font-size: 1.5rem; padding: 15px 30px; background-color: #ffeb3b; border: 4px solid #ff9800; border-radius: 15px; cursor: pointer; font-weight: bold; box-shadow: 3px 3px 10px rgba(0,0,0,0.2); font-family: 'Comic Sans MS', sans-serif; margin-bottom: 50px;}
+        .confetti-btn:hover { background-color: #fbc02d; transform: scale(1.05); transition: 0.2s; }
     </style>
+    <!-- Librería para el confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -119,19 +133,39 @@
         <div class="memory-board" id="memory-board">
             <!-- Las cartas se generan por JavaScript -->
         </div>
-        <button id="restart-memory-btn" onclick="initMemoryGame()">🔄 Volver a Jugar Memory</button>
+        <button id="restart-memory-btn" onclick="initMemoryGame()">🔄 Jugar con otras parejas</button>
     </div>
 
     <!-- SECTION 6: MINIJUEGO QUIZ -->
-    <h2>🎮 Minijuego Quiz: ¡Ponte a prueba! 🎮</h2>
+    <h2>🎮 Minijuego Quiz 🎮</h2>
     <div class="quiz-container" id="quiz">
         <p id="question-text">Pregunta</p>
-        <div id="options">
-            <!-- Los botones de opciones aparecerán aquí -->
-        </div>
+        <div id="options"></div>
         <div id="feedback"></div>
         <button id="next-btn" onclick="nextQuestion()">Siguiente Pregunta ➡️</button>
-        <button id="restart-btn" onclick="startQuiz()">🔄 Jugar otra vez</button>
+        <button id="restart-btn" onclick="startQuiz()">🔄 Jugar con otras preguntas</button>
+    </div>
+
+    <!-- SECTION 7: RETO DE ESCRITURA (SPELLING) -->
+    <h2>📝 Reto de Escritura (Spelling) 📝</h2>
+    <div class="spelling-container">
+        <p>Escribe correctamente la palabra en inglés. ¡Cuidado con las letras trampa!</p>
+        <div class="spelling-clue" id="spelling-clue">Cargando...</div>
+        
+        <input type="text" id="spelling-input" class="spelling-input" placeholder="Escribe aquí..." autocomplete="off">
+        <br>
+        
+        <button class="spelling-btn" id="check-spelling-btn" onclick="checkSpelling()">Comprobar ✅</button>
+        <button class="spelling-btn" id="next-spelling-btn" onclick="nextSpelling()" style="display:none; background-color: #4caf50;">Siguiente ➡️</button>
+        <button class="spelling-btn" id="restart-spelling-btn" onclick="initSpellingGame()" style="display:none; background-color: #ff9800;">🔄 Jugar con otras palabras</button>
+        
+        <div id="spelling-feedback"></div>
+    </div>
+
+    <!-- SECTION 8: BOTÓN DE RECOMPENSA -->
+    <h2>🎉 ¡Premio Final! 🎉</h2>
+    <div style="margin: 30px 0;">
+        <button class="confetti-btn" onclick="fireConfetti()">¡He terminado de estudiar! 🎊</button>
     </div>
 
     <script>
@@ -144,203 +178,270 @@
         }
 
         // -----------------------------------------------------
-        // 2. LÓGICA DEL MEMORY GAME (JUEGO DE PAREJAS)
+        // 2. LÓGICA DEL MEMORY GAME (Aleatorio)
         // -----------------------------------------------------
-        const memoryPairs = [
-            { id: 1, text: "Tall 📏", match: 1 }, { id: 2, text: "Alto/Alta", match: 1 },
-            { id: 3, text: "Curly hair 〰️", match: 2 }, { id: 4, text: "Pelo rizado", match: 2 },
-            { id: 5, text: "Headache 🤕", match: 3 }, { id: 6, text: "Dolor de cabeza", match: 3 },
-            { id: 7, text: "Cough 🗣️", match: 4 }, { id: 8, text: "Tos", match: 4 },
-            { id: 9, text: "1st 🥇", match: 5 }, { id: 10, text: "Primero", match: 5 },
-            { id: 11, text: "January ❄️", match: 6 }, { id: 12, text: "Enero", match: 6 },
-            { id: 13, text: "Short 📏", match: 7 }, { id: 14, text: "Bajo/Baja", match: 7 },
-            { id: 15, text: "Toothache 🦷", match: 8 }, { id: 16, text: "Dolor de muelas", match: 8 }
+        const allMemoryPairs = [
+            { en: "Tall 📏", es: "Alto/Alta" },
+            { en: "Short 📏", es: "Bajo/Baja" },
+            { en: "Curly hair 〰️", es: "Pelo rizado" },
+            { en: "Straight hair ➖", es: "Pelo liso" },
+            { en: "Headache 🤕", es: "Dolor de cabeza" },
+            { en: "Toothache 🦷", es: "Dolor de muelas" },
+            { en: "Cough 🗣️", es: "Tos" },
+            { en: "1st 🥇", es: "Primero" },
+            { en: "3rd 🥉", es: "Tercero" },
+            { en: "January ❄️", es: "Enero" },
+            { en: "October 🎃", es: "Octubre" },
+            { en: "Thin 🏃‍♂️", es: "Delgado/a" },
+            { en: "Fat 🐻", es: "Gordo/a" },
+            { en: "Temperature 🌡️", es: "Fiebre" },
+            { en: "Earache 👂", es: "Dolor de oídos" },
+            { en: "December 🎄", es: "Diciembre" }
         ];
 
-        let hasFlippedCard = false;
-        let lockBoard = false;
-        let firstCard, secondCard;
-        let matchedPairs = 0;
-
+        let hasFlippedCard = false; let lockBoard = false; let firstCard, secondCard; let matchedPairs = 0;
         const memoryBoard = document.getElementById('memory-board');
 
         function initMemoryGame() {
             memoryBoard.innerHTML = '';
             matchedPairs = 0;
-            // Mezclar el array aleatoriamente
-            let shuffledArray = memoryPairs.sort(() => 0.5 - Math.random());
             
-            shuffledArray.forEach(item => {
+            // 1. Elegimos 8 parejas aleatorias del "saco"
+            let randomPairs = [...allMemoryPairs].sort(() => 0.5 - Math.random()).slice(0, 8);
+            
+            // 2. Creamos las 16 cartas (el inglés y el español comparten el mismo 'match' ID)
+            let memoryCards = [];
+            randomPairs.forEach((pair, index) => {
+                memoryCards.push({ text: pair.en, match: index });
+                memoryCards.push({ text: pair.es, match: index });
+            });
+
+            // 3. Las mezclamos bien
+            memoryCards.sort(() => 0.5 - Math.random());
+
+            // 4. Las colocamos en el tablero
+            memoryCards.forEach(item => {
                 const card = document.createElement('div');
                 card.classList.add('memory-card');
                 card.dataset.match = item.match;
-                
-                card.innerHTML = `
-                    <div class="memory-face memory-front">${item.text}</div>
-                    <div class="memory-face memory-back">❓</div>
-                `;
-                
+                card.innerHTML = `<div class="memory-face memory-front">${item.text}</div><div class="memory-face memory-back">❓</div>`;
                 card.addEventListener('click', flipCard);
                 memoryBoard.appendChild(card);
             });
         }
 
         function flipCard() {
-            if (lockBoard) return;
-            if (this === firstCard) return;
-
+            if (lockBoard || this === firstCard) return;
             this.classList.add('flip');
-
-            if (!hasFlippedCard) {
-                hasFlippedCard = true;
-                firstCard = this;
-                return;
-            }
-
+            if (!hasFlippedCard) { hasFlippedCard = true; firstCard = this; return; }
             secondCard = this;
             checkForMatch();
         }
-
         function checkForMatch() {
             let isMatch = firstCard.dataset.match === secondCard.dataset.match;
             isMatch ? disableCards() : unflipCards();
         }
-
         function disableCards() {
             firstCard.removeEventListener('click', flipCard);
             secondCard.removeEventListener('click', flipCard);
             matchedPairs++;
-            
-            if(matchedPairs === 8) {
-                setTimeout(() => { alert("¡Felicidades! Has encontrado todas las parejas 🏆"); }, 500);
-            }
+            if(matchedPairs === 8) { setTimeout(() => { fireConfetti(); alert("¡Felicidades! Has encontrado todas las parejas 🏆"); }, 500); }
             resetBoard();
         }
-
         function unflipCards() {
             lockBoard = true;
-            setTimeout(() => {
-                firstCard.classList.remove('flip');
-                secondCard.classList.remove('flip');
-                resetBoard();
-            }, 1000);
+            setTimeout(() => { firstCard.classList.remove('flip'); secondCard.classList.remove('flip'); resetBoard(); }, 1000);
         }
-
-        function resetBoard() {
-            [hasFlippedCard, lockBoard] = [false, false];
-            [firstCard, secondCard] = [null, null];
-        }
-
-        // Iniciar el Memory Game al cargar la página
+        function resetBoard() { [hasFlippedCard, lockBoard] = [false, false]; [firstCard, secondCard] = [null, null]; }
+        
         initMemoryGame();
 
-
         // -----------------------------------------------------
-        // 3. LÓGICA DEL MINIJUEGO QUIZ
+        // 3. LÓGICA DEL MINIJUEGO QUIZ (Aleatorio)
         // -----------------------------------------------------
-        const questions = [
-            {
-                question: "¿Cómo se dice 'Dolor de cabeza' en inglés? 🤕",
-                options: ["Toothache", "Headache", "Stomach-ache"],
-                correctAnswer: 1 
-            },
-            {
-                question: "Si alguien tiene el pelo liso, decimos que tiene... ➖",
-                options: ["Curly hair", "Short hair", "Straight hair"],
-                correctAnswer: 2
-            },
-            {
-                question: "¿Cómo se dice 'Tercero' en inglés? 🥉",
-                options: ["1st (First)", "3rd (Third)", "2nd (Second)"],
-                correctAnswer: 1
-            },
-            {
-                question: "Completa la frase: 'I'm not feeling very well, I have a _______' (Tos) 🗣️",
-                options: ["Cold", "Cough", "Cut"],
-                correctAnswer: 1
-            },
-            {
-                question: "¿Qué mes va justo después de Septiembre? 🎃",
-                options: ["October", "August", "November"],
-                correctAnswer: 0
-            }
+        const allQuestions = [
+            { question: "¿Cómo se dice 'Dolor de cabeza' en inglés? 🤕", options: ["Toothache", "Headache", "Stomach-ache"], correctAnswer: 1 },
+            { question: "Si alguien tiene el pelo liso, decimos que tiene... ➖", options: ["Curly hair", "Short hair", "Straight hair"], correctAnswer: 2 },
+            { question: "¿Cómo se dice 'Tercero' en inglés? 🥉", options: ["1st (First)", "3rd (Third)", "2nd (Second)"], correctAnswer: 1 },
+            { question: "Completa la frase: 'I'm not feeling very well, I have a _______' (Tos) 🗣️", options: ["Cold", "Cough", "Cut"], correctAnswer: 1 },
+            { question: "¿Qué mes va justo después de Septiembre? 🎃", options: ["October", "August", "November"], correctAnswer: 0 },
+            { question: "¿Qué número ordinal es 'First'? 🥇", options: ["Primero", "Segundo", "Tercero"], correctAnswer: 0 },
+            { question: "Traduce: 'Pelo rizado' 〰️", options: ["Straight hair", "Dark hair", "Curly hair"], correctAnswer: 2 },
+            { question: "¿Qué duele si tienes un 'Toothache'? 🦷", options: ["La cabeza", "Las muelas", "La barriga"], correctAnswer: 1 },
+            { question: "¿Cómo decimos que alguien es 'Delgado'? 🏃‍♂️", options: ["Fat", "Thin", "Tall"], correctAnswer: 1 },
+            { question: "Si digo 'He is tall', significa... 📏", options: ["Él es bajo", "Él es gordo", "Él es alto"], correctAnswer: 2 },
+            { question: "¿Cuál es el mes de 'Febrero'? ❄️", options: ["January", "February", "March"], correctAnswer: 1 },
+            { question: "¿Qué es tener un 'Cold'? 🤧", options: ["Un resfriado", "Una fiebre", "Un corte"], correctAnswer: 0 }
         ];
 
-        let currentQuestionIndex = 0;
-        let score = 0;
+        let activeQuestions = [];
+        let currentQuestionIndex = 0; let score = 0;
+        
+        const questionEl = document.getElementById("question-text"); const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback"); const nextBtn = document.getElementById("next-btn"); const restartQuizBtn = document.getElementById("restart-btn");
 
-        const questionEl = document.getElementById("question-text");
-        const optionsEl = document.getElementById("options");
-        const feedbackEl = document.getElementById("feedback");
-        const nextBtn = document.getElementById("next-btn");
-        const restartQuizBtn = document.getElementById("restart-btn");
-
-        function startQuiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            restartQuizBtn.style.display = "none";
-            showQuestion();
+        function startQuiz() { 
+            currentQuestionIndex = 0; 
+            score = 0; 
+            restartQuizBtn.style.display = "none"; 
+            
+            // Cogemos 5 preguntas al azar de la bolsa total de preguntas
+            activeQuestions = [...allQuestions].sort(() => 0.5 - Math.random()).slice(0, 5);
+            
+            showQuestion(); 
         }
 
         function showQuestion() {
-            nextBtn.style.display = "none";
-            feedbackEl.textContent = "";
-            feedbackEl.style.color = "#333";
-            optionsEl.innerHTML = "";
-
-            const q = questions[currentQuestionIndex];
+            nextBtn.style.display = "none"; feedbackEl.textContent = ""; optionsEl.innerHTML = "";
+            const q = activeQuestions[currentQuestionIndex];
             questionEl.textContent = `${currentQuestionIndex + 1}. ${q.question}`;
-
             q.options.forEach((option, index) => {
                 const button = document.createElement("button");
-                button.textContent = option;
-                button.classList.add("quiz-btn");
+                button.textContent = option; button.classList.add("quiz-btn");
                 button.onclick = () => selectAnswer(index, button);
                 optionsEl.appendChild(button);
             });
         }
 
         function selectAnswer(selectedIndex, button) {
-            const q = questions[currentQuestionIndex];
+            const q = activeQuestions[currentQuestionIndex];
             const allButtons = optionsEl.querySelectorAll(".quiz-btn");
-            
             allButtons.forEach(btn => btn.disabled = true);
-
             if (selectedIndex === q.correctAnswer) {
-                button.classList.add("correct");
-                feedbackEl.textContent = "¡Correcto! 🎉";
-                feedbackEl.style.color = "#4caf50";
-                score++;
+                button.classList.add("correct"); feedbackEl.textContent = "¡Correcto! 🎉"; feedbackEl.style.color = "#4caf50"; score++;
             } else {
-                button.classList.add("incorrect");
-                feedbackEl.textContent = "¡Ups! 😅 La respuesta correcta era: " + q.options[q.correctAnswer];
-                feedbackEl.style.color = "#f44336";
+                button.classList.add("incorrect"); feedbackEl.textContent = "¡Ups! 😅 La respuesta era: " + q.options[q.correctAnswer]; feedbackEl.style.color = "#f44336";
                 allButtons[q.correctAnswer].classList.add("correct");
             }
-
             nextBtn.style.display = "inline-block";
         }
 
-        function nextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                showResults();
-            }
+        function nextQuestion() { 
+            currentQuestionIndex++; 
+            if (currentQuestionIndex < activeQuestions.length) { 
+                showQuestion(); 
+            } else { 
+                showResults(); 
+            } 
         }
 
         function showResults() {
-            questionEl.textContent = "¡Has terminado el quiz! 🏆";
-            optionsEl.innerHTML = "";
-            nextBtn.style.display = "none";
-            feedbackEl.textContent = `Has acertado ${score} de ${questions.length} preguntas.`;
-            feedbackEl.style.color = "#2196f3";
+            questionEl.textContent = "¡Has terminado el quiz! 🏆"; optionsEl.innerHTML = ""; nextBtn.style.display = "none";
+            feedbackEl.textContent = `Has acertado ${score} de ${activeQuestions.length} preguntas.`; feedbackEl.style.color = "#2196f3";
             restartQuizBtn.style.display = "inline-block";
+            if(score === activeQuestions.length) fireConfetti();
+        }
+        
+        startQuiz();
+
+        // -----------------------------------------------------
+        // 4. LÓGICA DEL RETO DE ESCRITURA (SPELLING) Aleatorio
+        // -----------------------------------------------------
+        const allSpellingWords = [
+            { clue: "Tos 🗣️", answer: "cough" },
+            { clue: "Resfriado 🤧", answer: "cold" },
+            { clue: "Fiebre 🌡️", answer: "temperature" },
+            { clue: "Un corte 🩹", answer: "a cut" },
+            { clue: "Dolor de cabeza 🤕", answer: "headache" },
+            { clue: "Dolor de barriga 🤢", answer: "stomach-ache" },
+            { clue: "Dolor de muelas 🦷", answer: "toothache" },
+            { clue: "Dolor de oídos 👂", answer: "earache" },
+            { clue: "Alto/Alta 📏", answer: "tall" },
+            { clue: "Bajo/Baja 📏", answer: "short" },
+            { clue: "Delgado/Delgada 🏃‍♂️", answer: "thin" },
+            { clue: "Pelo largo 📏", answer: "long hair" },
+            { clue: "Pelo liso ➖", answer: "straight hair" },
+            { clue: "Pelo rizado 〰️", answer: "curly hair" },
+            { clue: "Primero 🥇", answer: "first" },
+            { clue: "Tercero 🥉", answer: "third" },
+            { clue: "Febrero ❄️", answer: "february" },
+            { clue: "Diciembre 🎄", answer: "december" }
+        ];
+        
+        let activeSpellingWords = [];
+        let currentSpellingIndex = 0;
+        
+        const clueEl = document.getElementById("spelling-clue");
+        const inputEl = document.getElementById("spelling-input");
+        const spellingFeedbackEl = document.getElementById("spelling-feedback");
+        const nextSpellingBtn = document.getElementById("next-spelling-btn");
+        const checkSpellingBtn = document.getElementById("check-spelling-btn");
+        const restartSpellingBtn = document.getElementById("restart-spelling-btn");
+
+        function initSpellingGame() {
+            // Cogemos 5 palabras al azar de la bolsa total
+            let shuffled = [...allSpellingWords].sort(() => 0.5 - Math.random());
+            activeSpellingWords = shuffled.slice(0, 5); 
+            currentSpellingIndex = 0;
+            
+            inputEl.style.display = "inline-block";
+            checkSpellingBtn.style.display = "inline-block";
+            restartSpellingBtn.style.display = "none";
+            spellingFeedbackEl.textContent = "";
+            
+            loadSpelling();
         }
 
-        // Iniciar el quiz al cargar la página
-        startQuiz();
+        function loadSpelling() {
+            clueEl.textContent = `(${currentSpellingIndex + 1}/5) ` + activeSpellingWords[currentSpellingIndex].clue;
+            inputEl.value = "";
+            spellingFeedbackEl.textContent = "";
+            nextSpellingBtn.style.display = "none";
+            inputEl.disabled = false;
+            inputEl.focus();
+        }
+
+        function checkSpelling() {
+            const userAnswer = inputEl.value.trim().toLowerCase();
+            const correctAnswer = activeSpellingWords[currentSpellingIndex].answer.toLowerCase();
+            
+            if (userAnswer === correctAnswer) {
+                spellingFeedbackEl.textContent = "¡Perfecto! ✅ Correcto.";
+                spellingFeedbackEl.style.color = "#4caf50";
+                inputEl.disabled = true;
+                nextSpellingBtn.style.display = "inline-block";
+                checkSpellingBtn.style.display = "none"; 
+            } else {
+                spellingFeedbackEl.textContent = "¡Ups! ❌ Repásalo e inténtalo otra vez.";
+                spellingFeedbackEl.style.color = "#f44336";
+            }
+        }
+
+        function nextSpelling() {
+            currentSpellingIndex++;
+            if (currentSpellingIndex >= activeSpellingWords.length) {
+                fireConfetti();
+                clueEl.textContent = "¡Ronda completada! 🏆";
+                inputEl.style.display = "none";
+                nextSpellingBtn.style.display = "none";
+                checkSpellingBtn.style.display = "none";
+                spellingFeedbackEl.textContent = "¡Eres un genio del spelling! 🥇";
+                restartSpellingBtn.style.display = "inline-block"; 
+            } else {
+                checkSpellingBtn.style.display = "inline-block"; 
+                loadSpelling();
+            }
+        }
+        
+        initSpellingGame();
+
+        inputEl.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkSpelling();
+            }
+        });
+
+        // -----------------------------------------------------
+        // 5. LÓGICA DEL CONFETI 🎉
+        // -----------------------------------------------------
+        function fireConfetti() {
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+        }
     </script>
 </body>
 </html>
