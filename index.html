@@ -5,40 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repaso de Inglés - 4º Primaria</title>
     <style>
-        body { font-family: 'Comic Sans MS', sans-serif, Arial; background-color: #f0f8ff; text-align: center; padding: 20px; }
-        h1 { color: #ff6f61; }
-        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
-        .card { background-color: white; border: 3px solid #4caf50; border-radius: 12px; padding: 20px; width: 200px; font-size: 1.2rem; cursor: pointer; transition: transform 0.2s; box-shadow: 3px 3px 10px rgba(0,0,0,0.1); }
-        .card:hover { transform: scale(1.05); }
+        body { font-family: 'Comic Sans MS', sans-serif, Arial; background-color: #f0f8ff; text-align: center; padding: 20px; color: #333; }
+        h1 { color: #ff6f61; font-size: 2.5rem; }
+        h2 { color: #4caf50; margin-top: 40px; border-bottom: 2px dashed #4caf50; display: inline-block; padding-bottom: 5px; }
+        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .card { background-color: white; border: 3px solid #ff9800; border-radius: 12px; padding: 20px; width: 220px; font-size: 1.2rem; cursor: pointer; transition: transform 0.2s; box-shadow: 3px 3px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; min-height: 80px; }
+        .card:hover { transform: scale(1.05); border-color: #ff5722; }
         .english { font-weight: bold; color: #2196f3; }
-        .spanish { color: #555; display: none; margin-top: 10px; font-size: 1rem; }
+        .spanish { color: #e91e63; display: none; margin-top: 10px; font-size: 1.1rem; font-weight: bold; }
+        .phrase-card { border-color: #9c27b0; width: 300px; }
     </style>
 </head>
 <body>
 
-    <h1>🌟 Practice English Vocabulary! 🌟</h1>
-    <p>Haz clic en cada tarjeta para ver el significado en español 👇</p>
+    <h1>🌟 ¡Super Repaso de Inglés! 🌟</h1>
+    <p>Haz clic en cada tarjeta para ver qué significa en español 👇</p>
 
+    <!-- SECTION: DESCRIPTIONS -->
+    <h2>🧍‍♂️ Physical Description (Descripciones) 🧍‍♀️</h2>
     <div class="card-container">
-        <!-- Physical Description -->
-        <div class="card" onclick="toggleCard(this)"><span class="english">Tall</span><div class="spanish">Alto/a</div></div>
-        <div class="card" onclick="toggleCard(this)"><span class="english">Short</span><div class="spanish">Bajo/a / Corto</div></div>
-        <div class="card" onclick="toggleCard(this)"><span class="english">Curly hair</span><div class="spanish">Pelo rizado</div></div>
-        <div class="card" onclick="toggleCard(this)"><span class="english">Straight hair</span><div class="spanish">Pelo liso</div></div>
+        <div class="card phrase-card" onclick="toggleCard(this)"><span class="english">What does he/she look like? ❓</span><div class="spanish">¿Cómo es él / ella?</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Tall 📏</span><div class="spanish">Alto / Alta</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Short 📏</span><div class="spanish">Bajo / Baja</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Thin 🏃‍♂️</span><div class="spanish">Delgado / Delgada</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Fat 🐻</span><div class="spanish">Gordo / Gorda</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Long hair 📏</span><div class="spanish">Pelo largo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Short hair ✂️</span><div class="spanish">Pelo corto</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Straight hair ➖</span><div class="spanish">Pelo liso</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Curly hair 〰️</span><div class="spanish">Pelo rizado</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Dark hair 🌑</span><div class="spanish">Pelo oscuro</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Fair hair ☀️</span><div class="spanish">Pelo claro</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Red hair 🦊</span><div class="spanish">Pelo rojo / Pelirrojo</div></div>
+    </div>
 
-        <!-- Illnesses -->
-        <div class="card" onclick="toggleCard(this)"><span class="english">Headache 🤕</span><div class="spanish">Dolor de cabeza</div></div>
-        <div class="card" onclick="toggleCard(this)"><span class="english">Toothache 🦷</span><div class="spanish">Dolor de muelas</div></div>
+    <!-- SECTION: ILLNESSES -->
+    <h2>🤒 Illnesses (Enfermedades) 🏥</h2>
+    <div class="card-container">
+        <div class="card phrase-card" onclick="toggleCard(this)"><span class="english">I'm not feeling very well 📉</span><div class="spanish">No me encuentro muy bien</div></div>
+        <div class="card phrase-card" onclick="toggleCard(this)"><span class="english">What's the matter with you? ❓</span><div class="spanish">¿Qué te pasa?</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Cough 🗣️</span><div class="spanish">Tos</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Cold 🤧</span><div class="spanish">Resfriado</div></div>
         <div class="card" onclick="toggleCard(this)"><span class="english">Temperature 🌡️</span><div class="spanish">Fiebre</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">A cut 🩹</span><div class="spanish">Un corte / Una herida</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Headache 🤕</span><div class="spanish">Dolor de cabeza</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Stomach-ache 🤢</span><div class="spanish">Dolor de barriga</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Toothache 🦷</span><div class="spanish">Dolor de muelas</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">Earache 👂</span><div class="spanish">Dolor de oídos</div></div>
+    </div>
 
-        <!-- Ordinal Numbers -->
-        <div class="card" onclick="toggleCard(this)"><span class="english">1st (First) 🥇</span><div class="spanish">Primero</div></div>
-        <div class="card" onclick="toggleCard(this)"><span class="english">2nd (Second) 🥈</span><div class="spanish">Segundo</div></div>
-        <div class="card" onclick="toggleCard(this)"><span class="english">3rd (Third) 🥉</span><div class="spanish">Tercero</div></div>
+    <!-- SECTION: NUMBERS -->
+    <h2>🔢 Ordinal Numbers (Números Ordinales) 🔢</h2>
+    <div class="card-container">
+        <div class="card" onclick="toggleCard(this)"><span class="english">1st - First 🥇</span><div class="spanish">Primero</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">2nd - Second 🥈</span><div class="spanish">Segundo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">3rd - Third 🥉</span><div class="spanish">Tercero</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">4th - Fourth 4️⃣</span><div class="spanish">Cuarto</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">5th - Fifth 5️⃣</span><div class="spanish">Quinto</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">6th - Sixth 6️⃣</span><div class="spanish">Sexto</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">7th - Seventh 7️⃣</span><div class="spanish">Séptimo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">8th - Eighth 8️⃣</span><div class="spanish">Octavo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">9th - Ninth 9️⃣</span><div class="spanish">Noveno</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">10th - Tenth 🔟</span><div class="spanish">Décimo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">11th - Eleventh 1️⃣1️⃣</span><div class="spanish">Undécimo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">12th - Twelfth 1️⃣2️⃣</span><div class="spanish">Duodécimo</div></div>
+    </div>
 
-        <!-- Months -->
+    <!-- SECTION: MONTHS -->
+    <h2>📅 Months of the Year (Meses) 🗓️</h2>
+    <div class="card-container">
         <div class="card" onclick="toggleCard(this)"><span class="english">January ❄️</span><div class="spanish">Enero</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">February ❄️</span><div class="spanish">Febrero</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">March 🌱</span><div class="spanish">Marzo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">April 🌧️</span><div class="spanish">Abril</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">May 🌺</span><div class="spanish">Mayo</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">June ☀️</span><div class="spanish">Junio</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">July 🏖️</span><div class="spanish">Julio</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">August 🍦</span><div class="spanish">Agosto</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">September 🎒</span><div class="spanish">Septiembre</div></div>
         <div class="card" onclick="toggleCard(this)"><span class="english">October 🎃</span><div class="spanish">Octubre</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">November 🍂</span><div class="spanish">Noviembre</div></div>
+        <div class="card" onclick="toggleCard(this)"><span class="english">December 🎄</span><div class="spanish">Diciembre</div></div>
     </div>
 
     <script>
